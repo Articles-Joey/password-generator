@@ -1,0 +1,131 @@
+nav {
+    // background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    background-color: black;
+
+    .navbar {
+        // --bs-navbar-brand-color: var(--secondary);
+        --bs-navbar-color: black;
+        border-bottom: 1px solid white;
+
+        .navbar-brand {
+            color: #fff;
+            font-weight: 700;
+
+            &:hover {
+                background-color: transparent;
+            }
+
+            svg {
+                width: 30px;
+                transform: scale(3) translateY(5px);
+                margin-right: 1rem;
+            }
+
+            img {
+                transform: scale(1);
+                margin-right: 0.8rem;
+                // animation: glowEffect 3s infinite ease-in-out;
+
+                // @keyframes glowEffect {
+                //     0%,
+                //     100% {
+                //         filter: drop-shadow(0px 0px 0px white);
+                //     }
+                //     50% {
+                //         filter: drop-shadow(0px 0px 5px white);
+                //     }
+                // }
+            }
+        }
+
+        .center-links {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+
+            .link {
+                cursor: pointer;
+                color: black;
+                color: white;
+                text-decoration: none;
+                padding: 0.5rem 0.5rem;
+                transition-duration: 200ms;
+                border-radius: 0.5rem;
+
+                &.active {
+                    background-color: var(--primary);
+                    color: white;
+                }
+
+                &:hover:not(.active) {
+                    // background-color: var(--primary);
+                    background-color: color-mix(in srgb, var(--primary) 50%, transparent);
+                    color: white;
+                }
+            }
+        }
+
+        .nav-item {
+            // background-color: var(--bs-card-bg);
+            background-color: white;
+            // padding: 0.1rem 0.25rem;
+            border-radius: 0.5rem;
+            margin-left: 0.5rem;
+            border: 2px solid var(--primary);
+            font-weight: 700;
+            // box-shadow: 0px 0px 2px var(--secondary);
+            // font-family: "BelloScript";
+
+            &:hover {
+                background-color: white;
+                transition-duration: 200ms;
+
+                .nav-link {
+                    i {
+                        color: var(--primary);
+                        transition-duration: 200ms;
+                    }
+                }
+            }
+
+            .nav-link {
+                padding: 0.25rem 0.5rem;
+                // -webkit-text-stroke: 1px var(--primary);
+                font-weight: 900;
+                display: flex;
+
+                i {
+                    color: var(--primary);
+                    // color: #71bfff;
+                    font-size: 1.5rem;
+                    // margin-right: 0.5rem;
+                }
+            }
+        }
+    }
+
+    .links-bar {
+        color: white;
+
+        .links {
+            display: flex;
+            justify-content: center;
+
+            a {
+                padding: 0.25rem 0.5rem;
+                color: white;
+                text-decoration: none;
+
+                &:hover {
+                    background-color: white;
+                    color: black;
+                }
+            }
+        }
+    }
+}
