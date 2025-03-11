@@ -8,14 +8,18 @@ export default function SiteFooter() {
     return (
         <footer>
 
-            <div className="container d-flex justify-content-between">
+            <div className="container d-flex justify-content-between flex-column flex-lg-row">
 
-                <div>©{year} - {siteName} - by ArticlesJoey from Articles Media</div>
+                <div className="d-flex flex-column flex-lg-row">
+                    <span>©{year} - {siteName}</span>
+                    <span className="d-none d-lg-inline-block"> - </span>
+                    <span>by ArticlesJoey from <a target="_blank" href="https://articles.media">Articles Media</a></span>
+                </div>
 
                 <div>
                     <Link
                         prefetch={false}
-                        className="highlight px-1"
+                        className=""
                         href="/privacy"
                     >
                         Privacy

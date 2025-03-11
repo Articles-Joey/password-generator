@@ -48,7 +48,7 @@ export default function Password() {
 
         const randomValues = new Uint32Array(length);
         window.crypto.getRandomValues(randomValues); // Generate secure random numbers
-    
+
         for (let i = 0; i < length; i++) {
             const randomIndex = randomValues[i] % allowedChars.length; // Modulo to stay within allowedChars
             password += allowedChars[randomIndex];
@@ -61,13 +61,21 @@ export default function Password() {
         generatePassword()
     }, [])
 
+    useEffect(() => {
+        generatePassword()
+    }, [length])
+
+    useEffect(() => {
+        generatePassword()
+    }, [requirements])
+
     return (
         <section className="content">
 
             <div className="text-center header">
                 <h1>Generate a Password</h1>
                 <p className="mb-0">Site is 100% offline.</p>
-                <a 
+                <a
                     target="_blank"
                     href="https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues"
                     className="badge bg-white text-black"
@@ -125,7 +133,7 @@ export default function Password() {
                             value={length}
                             onChange={(e) => {
                                 setLength(e.target.value)
-                                generatePassword()
+                                // generatePassword()
                             }}
                         />
 
@@ -141,7 +149,7 @@ export default function Password() {
 
                                     console.log(mappedValue); // Outputs a value between 4 and 64
                                     setLength(mappedValue.toFixed(0))
-                                    generatePassword()
+                                    // generatePassword()
                                 }}
                             />
                         </div>
@@ -151,12 +159,17 @@ export default function Password() {
                     <div>Password Requirements</div>
 
                     {Object.keys(requirements).map(item => {
+
+                        const activeCount = Object.values(requirements).filter(value => value).length;
+                        const isDisabled = activeCount === 1 && requirements[item];
+
                         return (
                             <div key={item}>
                                 <Form.Check
                                     type="switch"
                                     id={`default-${item}`}
                                     label={`${item}`}
+                                    disabled={isDisabled}
                                     // defaultChecked={true}
                                     checked={requirements?.[item]}
                                     onChange={(e) => {

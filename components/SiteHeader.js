@@ -28,12 +28,16 @@ export default function SiteHeader() {
 
     const [menuOpen, setMenuOpen] = useState(false);
 
-    useEffect(() => {
-        setMenuOpen(false)
-    }, [pathname])
-
     const page = useStore(state => state.page);
     const setPage = useStore(state => state.setPage);
+
+    // useEffect(() => {
+    //     setMenuOpen(false)
+    // }, [pathname])
+
+    useEffect(() => {
+        setMenuOpen(false)
+    }, [page])
 
     return (
         <header>
@@ -69,10 +73,10 @@ export default function SiteHeader() {
                                 setMenuOpen(prev => !prev)
                             }}
                         >
-                            <em className="fa fa-bars" style={{ color: "#f16f21" }} aria-hidden="true"></em>
+                            <em className="fa fa-bars" style={{ color: "var(--primary)" }} aria-hidden="true"></em>
                         </button>
 
-                        <div className="center-links">
+                        <div className="center-links d-none d-lg-block">
                             {navLinks.map(obj => {
                                 return (
                                     <span
@@ -96,11 +100,27 @@ export default function SiteHeader() {
 
                                 <li className={`nav-item ${pathname == "/" && "active"}`}>
 
-                                    <Link className="nav-link" href="/">
+                                    <Link target="_blank" className="nav-link" href="https://github.com/Articles-Joey/password-generator">
                                         <i className="fab fa-github"></i>
                                     </Link>
 
                                 </li>
+
+                                {navLinks.map(obj => {
+                                    return (
+                                        <li
+                                            key={obj.link}
+                                            // href={obj.link}
+                                            onClick={() => {
+                                                console.log(obj.text)
+                                                setPage(obj.text)
+                                            }}
+                                            className={`d-lg-none link ${page == obj.text && 'active'}`}
+                                        >
+                                            {obj.text}
+                                        </li>
+                                    )
+                                })}
 
                             </ul>
 
