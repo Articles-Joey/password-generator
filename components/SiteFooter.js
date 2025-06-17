@@ -12,7 +12,7 @@ export default function SiteFooter() {
 
                 <div className="d-flex flex-column flex-lg-row">
                     <span>©{year} - {siteName}</span>
-                    <span className="d-none d-lg-inline-block"> - </span>
+                    <span className="d-none d-lg-inline-block px-1">-</span>
                     <span>by ArticlesJoey from <a target="_blank" href="https://articles.media">Articles Media</a></span>
                 </div>
 
