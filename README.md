@@ -2,7 +2,7 @@
 
 Yet another password generation site. Can be used to generate and hash passwords. Can also be used to encrypt/decrypt PGP messages. All logic is kept offline.
 
-![Site screenshot](public/preview//password-generator.webp)
+![Site screenshot](public/preview/password-generator.webp)
 
 ## Getting Started
 
