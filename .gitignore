@@ -35,3 +35,9 @@ yarn-error.log*
 .vercel
 
 /am_project_manager
+
+# Playwright test folders and reports
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.last-run.json
